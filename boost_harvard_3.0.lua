@@ -1,5 +1,56 @@
 -- =====================================================================
 -- Harvard Labs v3.0 — Boost + Landing Detection wrapper
+-- (Real Executor Compatible Version)
+-- =====================================================================
+
+local ORIGINAL_URL = "https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/refs/heads/main/leaked_harvard_3.0"
+
+-- ============ Robust HTTP Fetcher ====================================
+local function fetchURL(url)
+    -- 1. Try the executor's native global function first (works on Real)
+    if type(httpget) == "function" then
+        local success, result = pcall(httpget, url)
+        if success and type(result) == "string" and #result > 1000 then
+            return result
+        end
+    end
+
+    -- 2. Try the standard Roblox method (works on most other executors)
+    if type(game.HttpGet) == "function" then
+        local success, result = pcall(function()
+            return game:HttpGet(url)
+        end)
+        if success and type(result) == "string" and #result > 1000 then
+            return result
+        end
+    end
+
+    -- 3. Try syn.request or generic request as a last resort
+    if type(syn) == "table" and type(syn.request) == "function" then
+        local success, response = pcall(syn.request, { Url = url, Method = "GET" })
+        if success and response and type(response.Body) == "string" and #response.Body > 1000 then
+            return response.Body
+        end
+    elseif type(request) == "function" then
+        local success, response = pcall(request, { Url = url, Method = "GET" })
+        if success and response and type(response.Body) == "string" and #response.Body > 1000 then
+            return response.Body
+        end
+    end
+
+    return nil
+end
+-- =====================================================================
+
+-- Fetch the original script
+local source = fetchURL(ORIGINAL_URL)
+if not source then
+    error("[Boost] Could not fetch the original script. Check the URL and your executor's HTTP permissions.")
+end
+
+-- ... rest of your wrapper code (loadstring, boost, detection) ...
+-- =====================================================================
+-- Harvard Labs v3.0 — Boost + Landing Detection wrapper
 -- Upload as: boost_harvard_3.0.lua  (same repo as the original)
 -- Load with:
 --   loadstring(game:HttpGet(
