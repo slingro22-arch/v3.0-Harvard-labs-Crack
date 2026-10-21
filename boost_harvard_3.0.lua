@@ -3,7 +3,7 @@
 -- (Real Executor Compatible Version)
 -- =====================================================================
 
-local ORIGINAL_URL = "https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/refs/heads/main/leaked_harvard_3.0"
+local ORIGINAL_URL = "https://raw.githubusercontent.com/slingro22-arch/YOUR_REPO/refs/heads/main/leaked_harvard_3.0"
 
 -- ============ Robust HTTP Fetcher ====================================
 local function fetchURL(url)
