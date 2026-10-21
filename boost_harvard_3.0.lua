@@ -6,7 +6,7 @@
 --     "https://raw.githubusercontent.com/harvrdlabs/v3.0-Harvard-labs-Crack/refs/heads/main/boost_harvard_3.0.lua"))()
 -- =====================================================================
 
-local ORIGINAL_URL = "https://raw.githubusercontent.com/harvrdlabs/v3.0-Harvard-labs-Crack/refs/heads/main/leaked_harvard_3.0"
+local ORIGINAL_URL = "https://raw.githubusercontent.com/slingro22-arch/v3.0-Harvard-labs-Crack/refs/heads/main/leaked_harvard_3.0"
 
 -- ============ Tuning =================================================
 local BOOST       = 1.5     -- attack radius / reach / standoff multiplier
